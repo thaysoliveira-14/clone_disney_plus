@@ -1,0 +1,3 @@
+node_modules
+dist
+# dist - essa pasta foi adicionada pois ao rodar o "npm run build", ela será adicionada automaticamente ao projeto
