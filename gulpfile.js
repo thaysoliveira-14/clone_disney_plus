@@ -4,6 +4,8 @@ const gulp = require('gulp');
 // Importa o pacote gulp-sass e o configura para utilizar o Sass
 const sass = require('gulp-sass')(require('sass'));
 
+const imagemin = require('gulp-imagemin')
+
 // Função para processar os estilos SCSS
 function styles() {
     
@@ -17,7 +19,13 @@ function styles() {
         .pipe(gulp.dest('./dist/css'));
 }
 
-exports.default = styles;
+function imagens() {
+    return gulp.src('./src/imagens/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./dist/imagens'));
+}
+
+exports.default = gulp.parallel(styles, imagens);
 exports.watch = function () {
     gulp.watch('./src/styles/*.scss', gulp.parallel(styles))
 }
