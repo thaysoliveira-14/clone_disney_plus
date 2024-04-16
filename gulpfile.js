@@ -6,6 +6,14 @@ const sass = require('gulp-sass')(require('sass'));
 
 const imagemin = require('gulp-imagemin')
 
+const uglify = require('gulp-uglify')
+
+function scripts() {
+    return gulp.src ('./src/scripts/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+}
+
 // Função para processar os estilos SCSS
 function styles() {
     
@@ -25,7 +33,8 @@ function imagens() {
         .pipe(gulp.dest('./dist/imagens'));
 }
 
-exports.default = gulp.parallel(styles, imagens);
+exports.default = gulp.parallel(styles, imagens, scripts);
 exports.watch = function () {
     gulp.watch('./src/styles/*.scss', gulp.parallel(styles))
+    gulp.watch('./src/scripts/*.js', gulp.parallel(scripts))
 }
