@@ -9,11 +9,11 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <h1 class="hidden">
+            <h1>
                 <img class="header__logo" src="./dist/imagens/disneyplus.svg" alt="Disney+">
             </h1>
             <ul class="header__links">
-                <li class="header__links__item hidden">
+                <li class="header__links__item">
                     <a href="#" class="btn btn--secondary">Assine agora</a>
                 </li>
                 <li class="header__links__item">
@@ -161,7 +161,10 @@
         </div>
     </section>
     <section class="image-text-section image-text-section--image-full-width">
-        <img src="dist/imagens/fundo_rei_leao.png" alt="Rei Leão">
+        <picture>
+            <source media="(max-width: 768px)" srcset="./dist/imagens/fundo_rei_leao_celular.png">
+            <img src="dist/imagens/fundo_rei_leao.png" alt="Rei Leão">
+        </picture>
         <div class="image-text-section__text_container image-text-section--image-full-width__text_container">
             <h2 class="title">Baixe filmes e séries</h2>
             <p class="text--big">
